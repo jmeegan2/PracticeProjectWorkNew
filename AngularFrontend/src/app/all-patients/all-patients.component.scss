@@ -1,0 +1,32 @@
+.patients {
+    font-family: 'Arial', sans-serif;
+    background-color: #cefddb;
+    color: black;
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .patients th, .patients td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+  }
+
+  .patients th {
+    background-color: #1E88E5;
+    color: black;
+  }
+
+  .patients td {
+    background-color: #cefddb;
+  }
+
+  .patients tr:nth-child(even) {
+    background-color: #cefddb;
+  }
+
+  .patients tr:nth-child(odd) {
+    background-color: #cefddb;
+  }
