@@ -1,16 +1,16 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f5f5f5;
+    font-family: Merriweather,Times,serif;
 }
 
 header {
     background-color: #1E88E5;
     color: #fff;
     text-align: center;
-    padding: 1rem 0;
+    padding: 20px;
 }
+
 
 header h1 {
     margin: 0;
@@ -55,7 +55,7 @@ button[type="submit"] {
     background-color: #1E88E5;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 2px;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     cursor: pointer;
@@ -86,4 +86,37 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.navbar > .container, .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
+    display: flex;
+    background-color: #267aa0;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+    color:white;
+    margin:0;
+}
+.navbar {
+    --bs-navbar-padding-y: 0rem;
+}
+.bg-light {
+    padding: 0;
+}
+
+h1 {
+    color: white;
+}
+.nav-link.active {
+    color:white;
+}
+.nav-link {
+    color:white;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
 }
