@@ -1,2 +1,14 @@
-<p>providers works!</p>
-do providers page 
+<table class="providers">
+    <thead>
+      <tr>
+        <th>Provider</th>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let provider of providers">
+        <td>{{ provider.providerName }}</td>
+        <td>{{ provider.ID }}</td>
+      </tr>
+    </tbody>
+  </table>

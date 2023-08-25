@@ -22,10 +22,10 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Patients</a>
+                        <a class="nav-link" routerLink="patients">Patients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Providers</a>
+                        <a class="nav-link" routerLink="providers">Providers</a>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,11 +52,8 @@
     <main>
        
         
-          
-        <section class="record-section">
-            <h2>Patient Records</h2>
-           <app-all-patients></app-all-patients>
-        </section>
+        <router-outlet></router-outlet>
+       
     </main>
     <footer>
         <p>&copy; 2023 Fake Medical Database</p>
@@ -64,4 +61,3 @@
 </body>
 </html>
 
-<router-outlet></router-outlet>
