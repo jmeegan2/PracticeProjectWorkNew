@@ -11,10 +11,13 @@ export class AuthService {
   }
 
   login(): void {
+    console.log("you have been logged in")
+
     this.isAuthenticated = true;
   }
 
   logout(): void {
+    console.log("you have been logged out")
     this.isAuthenticated = false;
   }
 }
