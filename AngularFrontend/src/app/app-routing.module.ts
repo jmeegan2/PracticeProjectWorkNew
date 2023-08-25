@@ -6,10 +6,8 @@ import { ProvidersComponent } from './components/providers/providers.component';
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
 const routes: Routes = [
 
-  {
-    path: '',
-    component: HomeComponent
-  },
+  { path: '', redirectTo: 'userAuth', 
+  pathMatch: 'full' },
   {
     path: 'patients',
     component: AllPatientsComponent
@@ -21,6 +19,10 @@ const routes: Routes = [
  {
   path: 'userAuth',
   component: UserAuthComponent
+ },
+ {
+  path: 'home',
+  component: HomeComponent
  }
 
 ];

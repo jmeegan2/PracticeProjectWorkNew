@@ -18,4 +18,8 @@
     color: white;
   }
 
-  
+  main {
+    padding: 2rem;
+    text-align: center;
+    flex: 1; /* Allow main content to take up remaining space */
+  }

@@ -1,26 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserCredentials } from 'src/app/api/models/user-credentials';
-import { Router } from '@angular/router';
-
 import { UserCredentialsControllerService } from 'src/app/api/services/user-credentials-controller.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service'; // Update the path to AuthService
 
 @Component({
   selector: 'app-user-auth',
   templateUrl: './user-auth.component.html',
   styleUrls: ['./user-auth.component.scss']
 })
-export class UserAuthComponent {
+export class UserAuthComponent implements OnInit {
 
+  loginForm: FormGroup = new FormGroup({});
   userAuths: UserCredentials[] = [];
-  username: string = '';
-  password: string = '';
+  isAuthenticated: boolean; // Initialize the property
 
   constructor(
+    private formBuilder: FormBuilder,
     private userAuthService: UserCredentialsControllerService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private authService: AuthService // Inject the AuthService
+  ) {
+    // Initialize isAuthenticated property based on the value from the AuthService
+    this.isAuthenticated = authService.getIsAuthenticated();
+  }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+
     this.getUserAuths();
   }
 
@@ -29,14 +40,28 @@ export class UserAuthComponent {
   }
 
   login(): void {
-    const foundUser = this.userAuths.find(user => user.username === this.username && user.password === this.password);
-    
-    if (foundUser) {
-      console.log('Valid'); // Username and password match
-      // You can perform additional actions here, such as setting authentication status or redirecting to a different page.
-    } else {
-      console.log('False'); // Username and password do not match
+    if (this.loginForm.valid) {
+      const username = this.loginForm.value.username;
+      const password = this.loginForm.value.password;
+
+      // Validate the username and password
+      const foundUser = this.userAuths.find((user: UserCredentials) => user.username === username && user.password === password);
+
+      if (foundUser) {
+        console.log('Valid');
+        this.authService.login(); // Set authentication status to true
+        this.isAuthenticated = true; // Update the isAuthenticated property
+        this.router.navigate(['/home']); // Redirect to HomeComponent
+      } else {
+        console.log('False');
+        alert('Incorrect Login');
+      }
     }
   }
-}
 
+  logout(): void {
+    this.authService.logout(); // Set authentication status to false
+    this.isAuthenticated = false; // Update the isAuthenticated property
+    this.router.navigate(['/userAuth']); // Redirect to UserAuthComponent
+  }
+}

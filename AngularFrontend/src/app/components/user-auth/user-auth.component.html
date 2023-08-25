@@ -1,3 +1,5 @@
+<main>
+    <div>
 <table class="user-auth">
     <thead>
       <tr>
@@ -14,19 +16,20 @@
       </tr>
     </tbody>
   </table>
-  
+</div>
   <div class="login-container">
     <h2>Login</h2>
-    <form (ngSubmit)="login()">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" id="username" [(ngModel)]="username" name="username" class="form-control" required>
+        <input type="text" id="username" formControlName="username" class="form-control">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" required>
+        <input type="password" id="password" formControlName="password" class="form-control">
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
   </div>
+</main>
   

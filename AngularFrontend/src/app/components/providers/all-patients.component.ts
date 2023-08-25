@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Patient } from '../api/models/patient'; // Import the Patient interface
-import { PatientControllerService } from '../api/services/patient-controller.service'; // Import the service
+import { Patient } from 'src/app/api/models';
+import { PatientControllerService } from 'src/app/api/services/patient-controller.service'; // Import the service
 
 @Component({
   selector: 'app-all-patients',
@@ -18,7 +18,7 @@ export class AllPatientsComponent implements OnInit {
   }
 
   getPatients(): void {
-    this.patientService.find().subscribe(patients => this.patients = patients); // Subscribe to the service to get patients
+    this.patientService.find().subscribe((patients: Patient[]) => this.patients = patients); // Subscribe to the service to get patients
   }
 }
 

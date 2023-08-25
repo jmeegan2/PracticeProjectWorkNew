@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-xl navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/home']">
+            <h1>Medical Portal</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/home']">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/patients']">Patients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/providers']">Providers</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto"> <!-- Align items on the right -->
+                <li class="nav-item">
+
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit">Search</button>
+                <!-- <button class="btn btn-danger" (click)="logout()">Logout</button> -->
+
+            </form>
+        </div>
+    </div>
+</nav>

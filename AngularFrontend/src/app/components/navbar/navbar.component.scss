@@ -1,0 +1,36 @@
+.navbar > .container, .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
+    display: flex;
+    background-color: #267aa0;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+    color:white;
+    margin:0;
+}
+.navbar {
+    --bs-navbar-padding-y: 0rem;
+}
+.bg-light {
+    padding: 0;
+}
+
+h1 {
+    color: white;
+}
+.nav-link.active {
+    color:white;
+}
+.nav-link {
+    color:white;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-outline-dark {
+    background-color: white;
+}
