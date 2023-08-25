@@ -14,7 +14,7 @@ import { UserAuthComponent } from './components/user-auth/user-auth.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { AuthGuard } from './auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,8 +32,7 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [
-  ],
+  providers: [AuthGuard],
   bootstrap: [
     AppComponent,
   ],
