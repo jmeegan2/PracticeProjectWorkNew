@@ -6,6 +6,7 @@ import { AllPatientsComponent } from './components/all-patients/all-patients.com
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 
 import { RouterModule } from '@angular/router';
 import { ProvidersComponent } from './components/providers/providers.component';
@@ -22,7 +23,8 @@ import { UserAuthComponent } from './components/user-auth/user-auth.component';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
   ],
