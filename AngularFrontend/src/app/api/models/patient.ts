@@ -5,7 +5,6 @@ export interface Patient {
   firstName: string;
   idPatient?: number;
   lastName: string;
-  sex: string;
   providerName: string;
-
+  sex: string;
 }

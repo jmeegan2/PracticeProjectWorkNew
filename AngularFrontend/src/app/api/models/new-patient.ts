@@ -9,6 +9,6 @@ export interface NewPatient {
   firstName: string;
   idPatient?: number;
   lastName: string;
-  sex: string;
   providerName: string;
+  sex: string;
 }

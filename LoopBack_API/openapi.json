@@ -335,6 +335,309 @@
         },
         "operationId": "PingController.ping"
       }
+    },
+    "/providers/count": {
+      "get": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "count",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Provider.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Provider>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ProviderController.count"
+      }
+    },
+    "/providers/{id}": {
+      "put": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Provider PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Provider"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ProviderController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Provider PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProviderPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ProviderController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProviderWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Provider.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ProviderController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Provider DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ProviderController.deleteById"
+      }
+    },
+    "/providers": {
+      "post": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "create",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Provider"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewProvider"
+              }
+            }
+          }
+        },
+        "operationId": "ProviderController.create"
+      },
+      "patch": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Provider.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Provider>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProviderPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ProviderController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "find",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Provider model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProviderWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Provider.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ProviderController.find"
+      }
     }
   },
   "servers": [
@@ -344,6 +647,76 @@
   ],
   "components": {
     "schemas": {
+      "Provider": {
+        "title": "Provider",
+        "type": "object",
+        "properties": {
+          "providerName": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "providerName",
+          "ID"
+        ],
+        "additionalProperties": false
+      },
+      "NewProvider": {
+        "title": "NewProvider",
+        "type": "object",
+        "description": "(tsType: Provider, schemaOptions: { title: 'NewProvider' })",
+        "properties": {
+          "providerName": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "providerName",
+          "ID"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Provider"
+      },
+      "ProviderWithRelations": {
+        "title": "ProviderWithRelations",
+        "type": "object",
+        "description": "(tsType: ProviderWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "providerName": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "providerName",
+          "ID"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ProviderWithRelations"
+      },
+      "ProviderPartial": {
+        "title": "ProviderPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Provider>, schemaOptions: { partial: true })",
+        "properties": {
+          "providerName": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Provider>"
+      },
       "Patient": {
         "title": "Patient",
         "type": "object",
@@ -363,13 +736,17 @@
           },
           "sex": {
             "type": "string"
+          },
+          "providerName": {
+            "type": "string"
           }
         },
         "required": [
           "firstName",
           "lastName",
           "DOB",
-          "sex"
+          "sex",
+          "providerName"
         ],
         "additionalProperties": false
       },
@@ -393,13 +770,17 @@
           },
           "sex": {
             "type": "string"
+          },
+          "providerName": {
+            "type": "string"
           }
         },
         "required": [
           "firstName",
           "lastName",
           "DOB",
-          "sex"
+          "sex",
+          "providerName"
         ],
         "additionalProperties": false,
         "x-typescript-type": "Patient"
@@ -424,13 +805,17 @@
           },
           "sex": {
             "type": "string"
+          },
+          "providerName": {
+            "type": "string"
           }
         },
         "required": [
           "firstName",
           "lastName",
           "DOB",
-          "sex"
+          "sex",
+          "providerName"
         ],
         "additionalProperties": false,
         "x-typescript-type": "PatientWithRelations"
@@ -454,6 +839,9 @@
             "format": "date-time"
           },
           "sex": {
+            "type": "string"
+          },
+          "providerName": {
             "type": "string"
           }
         },
@@ -519,6 +907,9 @@
                   },
                   "sex": {
                     "type": "boolean"
+                  },
+                  "providerName": {
+                    "type": "boolean"
                   }
                 },
                 "additionalProperties": false
@@ -532,7 +923,8 @@
                     "firstName",
                     "lastName",
                     "DOB",
-                    "sex"
+                    "sex",
+                    "providerName"
                   ],
                   "example": "idPatient"
                 },
@@ -599,6 +991,9 @@
                   },
                   "sex": {
                     "type": "boolean"
+                  },
+                  "providerName": {
+                    "type": "boolean"
                   }
                 },
                 "additionalProperties": false
@@ -612,7 +1007,8 @@
                     "firstName",
                     "lastName",
                     "DOB",
-                    "sex"
+                    "sex",
+                    "providerName"
                   ],
                   "example": "idPatient"
                 },
@@ -648,6 +1044,137 @@
             "additionalProperties": true
           }
         }
+      },
+      "Provider.Filter": {
+        "type": "object",
+        "title": "Provider.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "providerName": {
+                    "type": "boolean"
+                  },
+                  "ID": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "providerName",
+                    "ID"
+                  ],
+                  "example": "providerName"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Provider.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Provider>"
+      },
+      "Provider.Filter1": {
+        "type": "object",
+        "title": "Provider.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Provider.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "providerName": {
+                    "type": "boolean"
+                  },
+                  "ID": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "providerName",
+                    "ID"
+                  ],
+                  "example": "providerName"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Provider.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Provider>"
       }
     }
   }
