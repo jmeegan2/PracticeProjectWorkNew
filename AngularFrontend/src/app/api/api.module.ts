@@ -7,6 +7,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 import { PatientControllerService } from './services/patient-controller.service';
 import { PingControllerService } from './services/ping-controller.service';
 import { ProviderControllerService } from './services/provider-controller.service';
+import { UserCredentialsControllerService } from './services/user-credentials-controller.service';
 
 /**
  * Module that provides all services and configuration.
@@ -19,6 +20,7 @@ import { ProviderControllerService } from './services/provider-controller.servic
     PatientControllerService,
     PingControllerService,
     ProviderControllerService,
+    UserCredentialsControllerService,
     ApiConfiguration
   ],
 })

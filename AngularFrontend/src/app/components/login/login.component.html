@@ -1,0 +1,16 @@
+<table class="userCredentials">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userCred of UserCredentialsList">
+        <td>{{ userCred.iduser_credentials }}</td>
+        <td>{{ userCred.username }}</td>
+        <td>{{ userCred.password }}</td>
+      </tr>
+    </tbody>
+  </table>

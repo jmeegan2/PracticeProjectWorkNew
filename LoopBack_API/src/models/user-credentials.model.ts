@@ -1,6 +1,10 @@
 import {Entity, model, property} from '@loopback/repository';
 
-@model()
+@model({
+  settings: {
+    name: 'user_credentials', // Correct table name here
+  },
+})
 export class UserCredentials extends Entity {
   @property({
     type: 'number',

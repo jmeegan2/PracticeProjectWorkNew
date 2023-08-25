@@ -1,5 +1,9 @@
 /* tslint:disable */
 /* eslint-disable */
+export { UserCredentials } from './models/user-credentials';
+export { NewUserCredentials } from './models/new-user-credentials';
+export { UserCredentialsWithRelations } from './models/user-credentials-with-relations';
+export { UserCredentialsPartial } from './models/user-credentials-partial';
 export { Provider } from './models/provider';
 export { NewProvider } from './models/new-provider';
 export { ProviderWithRelations } from './models/provider-with-relations';

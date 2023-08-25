@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AllPatientsComponent } from './all-patients/all-patients.component';
-import { ProvidersComponent } from './providers/providers.component';
-import { LoginComponent } from './login/login.component';
-
+import { HomeComponent } from './components/home/home.component';
+import { AllPatientsComponent } from './components/all-patients/all-patients.component';
+import { ProvidersComponent } from './components/providers/providers.component';
+import { LoginComponent } from './components/login/login.component';
 const routes: Routes = [
 
   {

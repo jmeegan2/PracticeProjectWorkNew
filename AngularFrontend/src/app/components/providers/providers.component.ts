@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ProviderControllerService } from '../api/services/provider-controller.service';
-import { Provider } from '../api/models';
+import { ProviderControllerService } from 'src/app/api/services';
+import { Provider } from 'src/app/api/models';
 
 @Component({
   selector: 'app-providers',
