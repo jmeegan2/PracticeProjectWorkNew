@@ -10,4 +10,6 @@ export interface PatientPartial {
   idPatient?: number;
   lastName?: string;
   sex?: string;
+  providerName?: string;
+
 }

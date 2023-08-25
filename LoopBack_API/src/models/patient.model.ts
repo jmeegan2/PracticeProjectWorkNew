@@ -32,6 +32,12 @@ export class Patient extends Entity {
     required: true,
   })
   sex: string;
+  
+  @property({
+    type: 'string',
+    required: true,
+  })
+  providerName: string;
 
 
   constructor(data?: Partial<Patient>) {

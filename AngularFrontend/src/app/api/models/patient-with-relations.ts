@@ -10,4 +10,6 @@ export interface PatientWithRelations {
   idPatient?: number;
   lastName: string;
   sex: string;
+  providerName: string;
+
 }

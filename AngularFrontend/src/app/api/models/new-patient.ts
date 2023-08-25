@@ -10,4 +10,5 @@ export interface NewPatient {
   idPatient?: number;
   lastName: string;
   sex: string;
+  providerName: string;
 }
