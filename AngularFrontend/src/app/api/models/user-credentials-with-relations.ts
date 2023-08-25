@@ -2,10 +2,10 @@
 /* eslint-disable */
 
 /**
- * (tsType: user_credentialsWithRelations, schemaOptions: { includeRelations: true })
+ * (tsType: UserCredentialsWithRelations, schemaOptions: { includeRelations: true })
  */
-export interface user_credentialsWithRelations {
-  iduser_credentials?: number;
+export interface UserCredentialsWithRelations {
+  iduserCredentials?: number;
   password: string;
   username: string;
 }

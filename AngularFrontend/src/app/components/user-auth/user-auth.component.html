@@ -1,0 +1,17 @@
+<table class="user-auth">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userAuth of userAuths">
+        <td>{{ userAuth.iduserCredentials }}</td>
+        <td>{{ userAuth.username }}</td>
+        <td>{{ userAuth.password }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

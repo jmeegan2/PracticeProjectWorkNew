@@ -1,0 +1,1702 @@
+
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "demo",
+    "version": "0.0.1",
+    "description": "loopbackStrongLoop",
+    "contact": {
+      "name": "James Meegan",
+      "email": "James.Meegan@softrams.com"
+    }
+  },
+  "paths": {
+    "/patients/count": {
+      "get": {
+        "x-controller-name": "PatientController",
+        "x-operation-name": "count",
+        "tags": [
+          "PatientController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Patient model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Patient.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Patient>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PatientController.count"
+      }
+    },
+    "/patients/{id}": {
+      "put": {
+        "x-controller-name": "PatientController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "PatientController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Patient PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Patient"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PatientController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "PatientController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "PatientController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Patient PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatientPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PatientController.updateById"
+      },
+      "get": {
+        "x-controller-name": "PatientController",
+        "x-operation-name": "findById",
+        "tags": [
+          "PatientController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Patient model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Patient.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PatientController.findById"
+      },
+      "delete": {
+        "x-controller-name": "PatientController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "PatientController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Patient DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PatientController.deleteById"
+      }
+    },
+    "/patients": {
+      "post": {
+        "x-controller-name": "PatientController",
+        "x-operation-name": "create",
+        "tags": [
+          "PatientController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Patient model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Patient"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPatient"
+              }
+            }
+          }
+        },
+        "operationId": "PatientController.create"
+      },
+      "patch": {
+        "x-controller-name": "PatientController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "PatientController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Patient PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Patient.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Patient>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatientPartial"
+              }
+            }
+          }
+        },
+        "operationId": "PatientController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "PatientController",
+        "x-operation-name": "find",
+        "tags": [
+          "PatientController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Patient model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatientWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Patient.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PatientController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/providers/count": {
+      "get": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "count",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Provider.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Provider>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ProviderController.count"
+      }
+    },
+    "/providers/{id}": {
+      "put": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Provider PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Provider"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ProviderController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Provider PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProviderPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ProviderController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProviderWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Provider.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ProviderController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Provider DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ProviderController.deleteById"
+      }
+    },
+    "/providers": {
+      "post": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "create",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Provider"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewProvider"
+              }
+            }
+          }
+        },
+        "operationId": "ProviderController.create"
+      },
+      "patch": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Provider.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Provider>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProviderPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ProviderController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ProviderController",
+        "x-operation-name": "find",
+        "tags": [
+          "ProviderController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Provider model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProviderWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Provider.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ProviderController.find"
+      }
+    },
+    "/user-credentials/count": {
+      "get": {
+        "x-controller-name": "UserCredentialsController",
+        "x-operation-name": "count",
+        "tags": [
+          "UserCredentialsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "UserCredentials model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "UserCredentials.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<UserCredentials>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserCredentialsController.count"
+      }
+    },
+    "/user-credentials/{id}": {
+      "put": {
+        "x-controller-name": "UserCredentialsController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "UserCredentialsController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "UserCredentials PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCredentials"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserCredentialsController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "UserCredentialsController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "UserCredentialsController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "UserCredentials PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCredentialsPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserCredentialsController.updateById"
+      },
+      "get": {
+        "x-controller-name": "UserCredentialsController",
+        "x-operation-name": "findById",
+        "tags": [
+          "UserCredentialsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "UserCredentials model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCredentialsWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCredentials.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserCredentialsController.findById"
+      },
+      "delete": {
+        "x-controller-name": "UserCredentialsController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "UserCredentialsController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "UserCredentials DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "UserCredentialsController.deleteById"
+      }
+    },
+    "/user-credentials": {
+      "post": {
+        "x-controller-name": "UserCredentialsController",
+        "x-operation-name": "create",
+        "tags": [
+          "UserCredentialsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "UserCredentials model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCredentials"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUserCredentials"
+              }
+            }
+          }
+        },
+        "operationId": "UserCredentialsController.create"
+      },
+      "patch": {
+        "x-controller-name": "UserCredentialsController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "UserCredentialsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "UserCredentials PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "UserCredentials.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<UserCredentials>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCredentialsPartial"
+              }
+            }
+          }
+        },
+        "operationId": "UserCredentialsController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "UserCredentialsController",
+        "x-operation-name": "find",
+        "tags": [
+          "UserCredentialsController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of UserCredentials model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserCredentialsWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCredentials.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserCredentialsController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "UserCredentials": {
+        "title": "UserCredentials",
+        "type": "object",
+        "properties": {
+          "iduserCredentials": {
+            "type": "number"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ],
+        "additionalProperties": false
+      },
+      "NewUserCredentials": {
+        "title": "NewUserCredentials",
+        "type": "object",
+        "description": "(tsType: Omit<UserCredentials, 'iduserCredentials'>, schemaOptions: { title: 'NewUserCredentials', exclude: [ 'iduserCredentials' ] })",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<UserCredentials, 'iduserCredentials'>"
+      },
+      "UserCredentialsWithRelations": {
+        "title": "UserCredentialsWithRelations",
+        "type": "object",
+        "description": "(tsType: UserCredentialsWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "iduserCredentials": {
+            "type": "number"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "UserCredentialsWithRelations"
+      },
+      "UserCredentialsPartial": {
+        "title": "UserCredentialsPartial",
+        "type": "object",
+        "description": "(tsType: Partial<UserCredentials>, schemaOptions: { partial: true })",
+        "properties": {
+          "iduserCredentials": {
+            "type": "number"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<UserCredentials>"
+      },
+      "Provider": {
+        "title": "Provider",
+        "type": "object",
+        "properties": {
+          "providerName": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "providerName",
+          "ID"
+        ],
+        "additionalProperties": false
+      },
+      "NewProvider": {
+        "title": "NewProvider",
+        "type": "object",
+        "description": "(tsType: Provider, schemaOptions: { title: 'NewProvider' })",
+        "properties": {
+          "providerName": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "providerName",
+          "ID"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Provider"
+      },
+      "ProviderWithRelations": {
+        "title": "ProviderWithRelations",
+        "type": "object",
+        "description": "(tsType: ProviderWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "providerName": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "providerName",
+          "ID"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ProviderWithRelations"
+      },
+      "ProviderPartial": {
+        "title": "ProviderPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Provider>, schemaOptions: { partial: true })",
+        "properties": {
+          "providerName": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Provider>"
+      },
+      "Patient": {
+        "title": "Patient",
+        "type": "object",
+        "properties": {
+          "idPatient": {
+            "type": "number"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "DOB": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sex": {
+            "type": "string"
+          },
+          "providerName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "firstName",
+          "lastName",
+          "DOB",
+          "sex",
+          "providerName"
+        ],
+        "additionalProperties": false
+      },
+      "NewPatient": {
+        "title": "NewPatient",
+        "type": "object",
+        "description": "(tsType: Patient, schemaOptions: { title: 'NewPatient' })",
+        "properties": {
+          "idPatient": {
+            "type": "number"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "DOB": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sex": {
+            "type": "string"
+          },
+          "providerName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "firstName",
+          "lastName",
+          "DOB",
+          "sex",
+          "providerName"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Patient"
+      },
+      "PatientWithRelations": {
+        "title": "PatientWithRelations",
+        "type": "object",
+        "description": "(tsType: PatientWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "idPatient": {
+            "type": "number"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "DOB": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sex": {
+            "type": "string"
+          },
+          "providerName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "firstName",
+          "lastName",
+          "DOB",
+          "sex",
+          "providerName"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "PatientWithRelations"
+      },
+      "PatientPartial": {
+        "title": "PatientPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Patient>, schemaOptions: { partial: true })",
+        "properties": {
+          "idPatient": {
+            "type": "number"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "DOB": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sex": {
+            "type": "string"
+          },
+          "providerName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Patient>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Patient.Filter": {
+        "type": "object",
+        "title": "Patient.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idPatient": {
+                    "type": "boolean"
+                  },
+                  "firstName": {
+                    "type": "boolean"
+                  },
+                  "lastName": {
+                    "type": "boolean"
+                  },
+                  "DOB": {
+                    "type": "boolean"
+                  },
+                  "sex": {
+                    "type": "boolean"
+                  },
+                  "providerName": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idPatient",
+                    "firstName",
+                    "lastName",
+                    "DOB",
+                    "sex",
+                    "providerName"
+                  ],
+                  "example": "idPatient"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Patient.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Patient>"
+      },
+      "Patient.Filter1": {
+        "type": "object",
+        "title": "Patient.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Patient.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idPatient": {
+                    "type": "boolean"
+                  },
+                  "firstName": {
+                    "type": "boolean"
+                  },
+                  "lastName": {
+                    "type": "boolean"
+                  },
+                  "DOB": {
+                    "type": "boolean"
+                  },
+                  "sex": {
+                    "type": "boolean"
+                  },
+                  "providerName": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idPatient",
+                    "firstName",
+                    "lastName",
+                    "DOB",
+                    "sex",
+                    "providerName"
+                  ],
+                  "example": "idPatient"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Patient.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Patient>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "Provider.Filter": {
+        "type": "object",
+        "title": "Provider.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "providerName": {
+                    "type": "boolean"
+                  },
+                  "ID": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "providerName",
+                    "ID"
+                  ],
+                  "example": "providerName"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Provider.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Provider>"
+      },
+      "Provider.Filter1": {
+        "type": "object",
+        "title": "Provider.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Provider.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "providerName": {
+                    "type": "boolean"
+                  },
+                  "ID": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "providerName",
+                    "ID"
+                  ],
+                  "example": "providerName"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Provider.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Provider>"
+      },
+      "UserCredentials.Filter": {
+        "type": "object",
+        "title": "UserCredentials.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "iduserCredentials": {
+                    "type": "boolean"
+                  },
+                  "username": {
+                    "type": "boolean"
+                  },
+                  "password": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "iduserCredentials",
+                    "username",
+                    "password"
+                  ],
+                  "example": "iduserCredentials"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "UserCredentials.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<UserCredentials>"
+      },
+      "UserCredentials.Filter1": {
+        "type": "object",
+        "title": "UserCredentials.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "UserCredentials.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "iduserCredentials": {
+                    "type": "boolean"
+                  },
+                  "username": {
+                    "type": "boolean"
+                  },
+                  "password": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "iduserCredentials",
+                    "username",
+                    "password"
+                  ],
+                  "example": "iduserCredentials"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "UserCredentials.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<UserCredentials>"
+      }
+    }
+  }
+}

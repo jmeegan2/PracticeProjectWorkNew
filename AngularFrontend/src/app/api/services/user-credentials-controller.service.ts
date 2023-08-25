@@ -10,20 +10,20 @@ import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 import { RequestBuilder } from '../request-builder';
 
-import { Newuser_credentials } from '../models/new-user-credentials';
-import { user_credentials } from '../models/user-credentials';
-import { user_credentialsPartial } from '../models/user-credentials-partial';
-import { user_credentialsWithRelations } from '../models/user-credentials-with-relations';
+import { NewUserCredentials } from '../models/new-user-credentials';
+import { UserCredentials } from '../models/user-credentials';
+import { UserCredentialsPartial } from '../models/user-credentials-partial';
+import { UserCredentialsWithRelations } from '../models/user-credentials-with-relations';
 import { Count as LoopbackCount } from '../models/loopback/count';
 
 @Injectable({ providedIn: 'root' })
-export class user_credentialsControllerService extends BaseService {
+export class UserCredentialsControllerService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
 
-  /** Path part for operation `user_credentialsControllerCount()` */
-  static readonly user_credentialsControllerCountPath = '/user-credentials/count';
+  /** Path part for operation `userCredentialsControllerCount()` */
+  static readonly UserCredentialsControllerCountPath = '/user-credentials/count';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -37,7 +37,7 @@ export class user_credentialsControllerService extends BaseService {
     },
     context?: HttpContext
   ): Observable<StrictHttpResponse<LoopbackCount>> {
-    const rb = new RequestBuilder(this.rootUrl, user_credentialsControllerService.user_credentialsControllerCountPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, UserCredentialsControllerService.UserCredentialsControllerCountPath, 'get');
     if (params) {
       rb.query('where', params.where, {});
     }
@@ -69,8 +69,8 @@ export class user_credentialsControllerService extends BaseService {
     );
   }
 
-  /** Path part for operation `user_credentialsControllerFindById()` */
-  static readonly user_credentialsControllerFindByIdPath = '/user-credentials/{id}';
+  /** Path part for operation `userCredentialsControllerFindById()` */
+  static readonly UserCredentialsControllerFindByIdPath = '/user-credentials/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -84,8 +84,8 @@ export class user_credentialsControllerService extends BaseService {
       filter?: any;
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<user_credentialsWithRelations>> {
-    const rb = new RequestBuilder(this.rootUrl, user_credentialsControllerService.user_credentialsControllerFindByIdPath, 'get');
+  ): Observable<StrictHttpResponse<UserCredentialsWithRelations>> {
+    const rb = new RequestBuilder(this.rootUrl, UserCredentialsControllerService.UserCredentialsControllerFindByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
       rb.query('filter', params.filter, {});
@@ -96,7 +96,7 @@ export class user_credentialsControllerService extends BaseService {
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<user_credentialsWithRelations>;
+        return r as StrictHttpResponse<UserCredentialsWithRelations>;
       })
     );
   }
@@ -113,14 +113,14 @@ export class user_credentialsControllerService extends BaseService {
       filter?: any;
     },
     context?: HttpContext
-  ): Observable<user_credentialsWithRelations> {
+  ): Observable<UserCredentialsWithRelations> {
     return this.findById$Response(params, context).pipe(
-      map((r: StrictHttpResponse<user_credentialsWithRelations>): user_credentialsWithRelations => r.body)
+      map((r: StrictHttpResponse<UserCredentialsWithRelations>): UserCredentialsWithRelations => r.body)
     );
   }
 
-  /** Path part for operation `user_credentialsControllerReplaceById()` */
-  static readonly user_credentialsControllerReplaceByIdPath = '/user-credentials/{id}';
+  /** Path part for operation `userCredentialsControllerReplaceById()` */
+  static readonly UserCredentialsControllerReplaceByIdPath = '/user-credentials/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -131,11 +131,11 @@ export class user_credentialsControllerService extends BaseService {
   replaceById$Response(
     params: {
       id: number;
-      body?: user_credentials
+      body?: UserCredentials
     },
     context?: HttpContext
   ): Observable<StrictHttpResponse<any>> {
-    const rb = new RequestBuilder(this.rootUrl, user_credentialsControllerService.user_credentialsControllerReplaceByIdPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, UserCredentialsControllerService.UserCredentialsControllerReplaceByIdPath, 'put');
     if (params) {
       rb.path('id', params.id, {});
       rb.body(params.body, 'application/json');
@@ -160,7 +160,7 @@ export class user_credentialsControllerService extends BaseService {
   replaceById(
     params: {
       id: number;
-      body?: user_credentials
+      body?: UserCredentials
     },
     context?: HttpContext
   ): Observable<any> {
@@ -169,8 +169,8 @@ export class user_credentialsControllerService extends BaseService {
     );
   }
 
-  /** Path part for operation `user_credentialsControllerDeleteById()` */
-  static readonly user_credentialsControllerDeleteByIdPath = '/user-credentials/{id}';
+  /** Path part for operation `userCredentialsControllerDeleteById()` */
+  static readonly UserCredentialsControllerDeleteByIdPath = '/user-credentials/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -184,7 +184,7 @@ export class user_credentialsControllerService extends BaseService {
     },
     context?: HttpContext
   ): Observable<StrictHttpResponse<any>> {
-    const rb = new RequestBuilder(this.rootUrl, user_credentialsControllerService.user_credentialsControllerDeleteByIdPath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, UserCredentialsControllerService.UserCredentialsControllerDeleteByIdPath, 'delete');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -216,8 +216,8 @@ export class user_credentialsControllerService extends BaseService {
     );
   }
 
-  /** Path part for operation `user_credentialsControllerUpdateById()` */
-  static readonly user_credentialsControllerUpdateByIdPath = '/user-credentials/{id}';
+  /** Path part for operation `userCredentialsControllerUpdateById()` */
+  static readonly UserCredentialsControllerUpdateByIdPath = '/user-credentials/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -228,11 +228,11 @@ export class user_credentialsControllerService extends BaseService {
   updateById$Response(
     params: {
       id: number;
-      body?: user_credentialsPartial
+      body?: UserCredentialsPartial
     },
     context?: HttpContext
   ): Observable<StrictHttpResponse<any>> {
-    const rb = new RequestBuilder(this.rootUrl, user_credentialsControllerService.user_credentialsControllerUpdateByIdPath, 'patch');
+    const rb = new RequestBuilder(this.rootUrl, UserCredentialsControllerService.UserCredentialsControllerUpdateByIdPath, 'patch');
     if (params) {
       rb.path('id', params.id, {});
       rb.body(params.body, 'application/json');
@@ -257,7 +257,7 @@ export class user_credentialsControllerService extends BaseService {
   updateById(
     params: {
       id: number;
-      body?: user_credentialsPartial
+      body?: UserCredentialsPartial
     },
     context?: HttpContext
   ): Observable<any> {
@@ -266,8 +266,8 @@ export class user_credentialsControllerService extends BaseService {
     );
   }
 
-  /** Path part for operation `user_credentialsControllerFind()` */
-  static readonly user_credentialsControllerFindPath = '/user-credentials';
+  /** Path part for operation `userCredentialsControllerFind()` */
+  static readonly UserCredentialsControllerFindPath = '/user-credentials';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -280,8 +280,8 @@ export class user_credentialsControllerService extends BaseService {
       filter?: any;
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<Array<user_credentialsWithRelations>>> {
-    const rb = new RequestBuilder(this.rootUrl, user_credentialsControllerService.user_credentialsControllerFindPath, 'get');
+  ): Observable<StrictHttpResponse<Array<UserCredentialsWithRelations>>> {
+    const rb = new RequestBuilder(this.rootUrl, UserCredentialsControllerService.UserCredentialsControllerFindPath, 'get');
     if (params) {
       rb.query('filter', params.filter, {});
     }
@@ -291,7 +291,7 @@ export class user_credentialsControllerService extends BaseService {
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Array<user_credentialsWithRelations>>;
+        return r as StrictHttpResponse<Array<UserCredentialsWithRelations>>;
       })
     );
   }
@@ -307,14 +307,14 @@ export class user_credentialsControllerService extends BaseService {
       filter?: any;
     },
     context?: HttpContext
-  ): Observable<Array<user_credentialsWithRelations>> {
+  ): Observable<Array<UserCredentialsWithRelations>> {
     return this.find$Response(params, context).pipe(
-      map((r: StrictHttpResponse<Array<user_credentialsWithRelations>>): Array<user_credentialsWithRelations> => r.body)
+      map((r: StrictHttpResponse<Array<UserCredentialsWithRelations>>): Array<UserCredentialsWithRelations> => r.body)
     );
   }
 
-  /** Path part for operation `user_credentialsControllerCreate()` */
-  static readonly user_credentialsControllerCreatePath = '/user-credentials';
+  /** Path part for operation `userCredentialsControllerCreate()` */
+  static readonly UserCredentialsControllerCreatePath = '/user-credentials';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -324,11 +324,11 @@ export class user_credentialsControllerService extends BaseService {
    */
   create$Response(
     params?: {
-      body?: Newuser_credentials
+      body?: NewUserCredentials
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<user_credentials>> {
-    const rb = new RequestBuilder(this.rootUrl, user_credentialsControllerService.user_credentialsControllerCreatePath, 'post');
+  ): Observable<StrictHttpResponse<UserCredentials>> {
+    const rb = new RequestBuilder(this.rootUrl, UserCredentialsControllerService.UserCredentialsControllerCreatePath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -338,7 +338,7 @@ export class user_credentialsControllerService extends BaseService {
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<user_credentials>;
+        return r as StrictHttpResponse<UserCredentials>;
       })
     );
   }
@@ -351,17 +351,17 @@ export class user_credentialsControllerService extends BaseService {
    */
   create(
     params?: {
-      body?: Newuser_credentials
+      body?: NewUserCredentials
     },
     context?: HttpContext
-  ): Observable<user_credentials> {
+  ): Observable<UserCredentials> {
     return this.create$Response(params, context).pipe(
-      map((r: StrictHttpResponse<user_credentials>): user_credentials => r.body)
+      map((r: StrictHttpResponse<UserCredentials>): UserCredentials => r.body)
     );
   }
 
-  /** Path part for operation `user_credentialsControllerUpdateAll()` */
-  static readonly user_credentialsControllerUpdateAllPath = '/user-credentials';
+  /** Path part for operation `userCredentialsControllerUpdateAll()` */
+  static readonly UserCredentialsControllerUpdateAllPath = '/user-credentials';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -372,11 +372,11 @@ export class user_credentialsControllerService extends BaseService {
   updateAll$Response(
     params?: {
       where?: any;
-      body?: user_credentialsPartial
+      body?: UserCredentialsPartial
     },
     context?: HttpContext
   ): Observable<StrictHttpResponse<LoopbackCount>> {
-    const rb = new RequestBuilder(this.rootUrl, user_credentialsControllerService.user_credentialsControllerUpdateAllPath, 'patch');
+    const rb = new RequestBuilder(this.rootUrl, UserCredentialsControllerService.UserCredentialsControllerUpdateAllPath, 'patch');
     if (params) {
       rb.query('where', params.where, {});
       rb.body(params.body, 'application/json');
@@ -401,7 +401,7 @@ export class user_credentialsControllerService extends BaseService {
   updateAll(
     params?: {
       where?: any;
-      body?: user_credentialsPartial
+      body?: UserCredentialsPartial
     },
     context?: HttpContext
   ): Observable<LoopbackCount> {

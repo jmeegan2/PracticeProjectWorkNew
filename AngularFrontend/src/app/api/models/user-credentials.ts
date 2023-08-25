@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
-export interface user_credentials {
-  iduser_credentials?: number;
+export interface UserCredentials {
+  iduserCredentials?: number;
   password: string;
   username: string;
 }
