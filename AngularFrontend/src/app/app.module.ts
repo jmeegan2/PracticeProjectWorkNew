@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
 import { ProvidersComponent } from './providers/providers.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllPatientsComponent,
-    ProvidersComponent
+    ProvidersComponent,
+    LoginComponent,
     
   ],
   imports: [

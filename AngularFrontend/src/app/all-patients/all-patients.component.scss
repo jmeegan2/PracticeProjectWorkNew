@@ -1,6 +1,5 @@
 .patients {
     font-family: 'Arial', sans-serif;
-    background-color: #cefddb;
     color: black;
     border: 2px solid black;
     border-collapse: collapse;
@@ -19,14 +18,4 @@
     color: white;
   }
 
-  .patients td {
-    background-color: #cefddb;
-  }
-
-  .patients tr:nth-child(even) {
-    background-color: #cefddb;
-  }
-
-  .patients tr:nth-child(odd) {
-    background-color: #cefddb;
-  }
+  
