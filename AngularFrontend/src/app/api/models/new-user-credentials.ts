@@ -2,9 +2,9 @@
 /* eslint-disable */
 
 /**
- * (tsType: Omit<UserCredentials, 'iduser_credentials'>, schemaOptions: { title: 'NewUserCredentials', exclude: [ 'iduser_credentials' ] })
+ * (tsType: Omit<user_credentials, 'iduser_credentials'>, schemaOptions: { title: 'Newuser_credentials', exclude: [ 'iduser_credentials' ] })
  */
-export interface NewUserCredentials {
+export interface Newuser_credentials {
   password: string;
   username: string;
 }

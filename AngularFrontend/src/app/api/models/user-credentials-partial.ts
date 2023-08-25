@@ -2,9 +2,9 @@
 /* eslint-disable */
 
 /**
- * (tsType: Partial<UserCredentials>, schemaOptions: { partial: true })
+ * (tsType: Partial<user_credentials>, schemaOptions: { partial: true })
  */
-export interface UserCredentialsPartial {
+export interface user_credentialsPartial {
   iduser_credentials?: number;
   password?: string;
   username?: string;

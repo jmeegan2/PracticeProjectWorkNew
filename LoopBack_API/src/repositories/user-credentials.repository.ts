@@ -5,7 +5,7 @@ import {UserCredentials, UserCredentialsRelations} from '../models';
 
 export class UserCredentialsRepository extends DefaultCrudRepository<
   UserCredentials,
-  typeof UserCredentials.prototype.iduser_credentials,
+  typeof UserCredentials.prototype.iduserCredentials,
   UserCredentialsRelations
 > {
   constructor(

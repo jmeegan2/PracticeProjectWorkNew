@@ -37,12 +37,12 @@ export class UserCredentialsController {
         'application/json': {
           schema: getModelSchemaRef(UserCredentials, {
             title: 'NewUserCredentials',
-            exclude: ['iduser_credentials'],
+            exclude: ['iduserCredentials'],
           }),
         },
       },
     })
-    userCredentials: Omit<UserCredentials, 'iduser_credentials'>,
+    userCredentials: Omit<UserCredentials, 'iduserCredentials'>,
   ): Promise<UserCredentials> {
     return this.userCredentialsRepository.create(userCredentials);
   }
