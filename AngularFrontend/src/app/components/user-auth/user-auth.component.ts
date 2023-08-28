@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserCredentials } from 'src/app/api/models/user-credentials';
 import { UserCredentialsControllerService } from 'src/app/api/services/user-credentials-controller.service';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth.service'; // Update the path to AuthService
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-user-auth',
@@ -14,7 +14,6 @@ export class UserAuthComponent implements OnInit {
 
   loginForm: FormGroup;
   userAuths: UserCredentials[] = [];
-  isAuthenticated: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,7 +21,6 @@ export class UserAuthComponent implements OnInit {
     private router: Router,
     private authService: AuthService
   ) {
-    this.isAuthenticated = authService.getIsAuthenticated();
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -47,7 +45,6 @@ export class UserAuthComponent implements OnInit {
       if (foundUser) {
         console.log('Valid');
         this.authService.login();
-        this.isAuthenticated = true;
         this.router.navigate(['/home']);
       } else {
         console.log('False');
@@ -58,7 +55,7 @@ export class UserAuthComponent implements OnInit {
 
   logout(): void {
     this.authService.logout();
-    this.isAuthenticated = false;
     this.router.navigate(['/userAuth']);
   }
 }
+
